@@ -1,0 +1,12 @@
+node_modules/
+.netlify/
+.env
+.env.*
+!.env.example
+.DS_Store
+Thumbs.db
+*.log
+
+# Fichiers d'origine des visuels (avant rognage/recompression par les scripts
+# PowerShell) : jamais servis par le site, inutile de les publier.
+assets/img/_sources/

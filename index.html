@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tapline — Carte NFC avis Google</title>
+<meta name="description" content="La carte NFC et QR code qui ouvre votre fiche d&#39;avis Google en un geste. Aucune application pour vos clients, sans abonnement, garantie à vie. 29,90 € l&#39;unité, jusqu&#39;à −30 % par quantité.">
+<link rel="canonical" href="https://tapline.fr/">
+
+<!-- PRÉPRODUCTION — le site n'est pas indexable le temps des tests.
+     À LA MISE EN LIGNE PUBLIQUE : supprimer la ligne ci-dessous, et
+     remplacer le contenu de robots.txt par la version indexable qui y
+     est laissée en commentaire. -->
+<meta name="robots" content="noindex, nofollow">
+
+<meta property="og:type" content="product">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="Tapline">
+<meta property="og:title" content="Tapline — Carte NFC avis Google">
+<meta property="og:description" content="Un geste, et l'avis est déjà écrit. Aucune application pour vos clients, sans abonnement, garantie à vie.">
+<meta property="og:url" content="https://tapline.fr/">
+<meta property="og:image" content="https://tapline.fr/assets/img/carte-google-bleu.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#F7F6F4">
+
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" media="print" data-font>
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"></noscript>
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<!-- Bandeau promo : masqué tant qu'aucune date de fin réelle n'est fixée dans config.js -->
+<div class="announce" id="announce" hidden><span id="announceText"></span></div>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="wordmark" href="/">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" aria-hidden="true">
+        <path d="M8 4.5a11 11 0 0 1 0 15"/><path d="M13.5 8a5.5 5.5 0 0 1 0 8"/>
+      </svg>
+      Tapline
+    </a>
+    <nav class="nav" aria-label="Navigation principale">
+      <a href="#fonctionnement">Comment ça marche</a>
+      <a href="#comparatif">Comparatif</a>
+      <a href="#tarifs">Tarifs</a>
+      <a href="#faq">Questions</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <a class="btn btn-primary header-cta" href="#commander">Commander</a>
+  </div>
+</header>
+
+<main>
+
+  <!-- ===================== HERO + FICHE PRODUIT ===================== -->
+  <section class="hero" id="commander" aria-labelledby="heroTitle">
+    <div class="wrap">
+
+      <div class="hero-hook">
+        <span class="eyebrow">Carte NFC &amp; QR code · Avis Google</span>
+        <h1 id="heroTitle">Un geste. Et l'avis est <em>déjà écrit</em>.</h1>
+      </div>
+      <p class="hero-sub">Vos clients approchent leur téléphone de la carte — ou scannent le QR code : votre fiche d'avis Google s'ouvre aussitôt, prête à recevoir leur note. Aucune application à installer de son côté, aucun abonnement du vôtre, pas un mot à ajouter.</p>
+
+      <div class="product">
+
+        <!-- Galerie -->
+        <div class="gallery">
+          <div class="stage" id="stage">
+            <span class="stage-badge"><span class="dot"></span>En stock</span>
+            <div class="stage-card" id="stageCard"></div>
+          </div>
+          <div class="thumbs" id="thumbs"></div>
+        </div>
+
+        <!-- Panneau d'achat -->
+        <div class="buy">
+
+          <div class="buy-rating" id="buyRating" hidden>
+            <span id="ratingStars"></span>
+            <b id="ratingValue"></b>
+            <span id="ratingCount"></span>
+          </div>
+
+          <div class="price-row">
+            <span class="price-now" id="priceNow">29,90 €</span>
+            <s class="price-was" id="priceWas" hidden></s>
+            <span class="price-badge" id="priceBadge" hidden></span>
+          </div>
+          <p class="price-note" id="priceNote"></p>
+          <p class="small">TVA non applicable, article 293 B du CGI — le prix affiché est le prix payé.</p>
+
+          <div class="buy-block">
+            <div class="block-label"><span>Finition</span><span class="hint">2 modèles</span></div>
+            <ul class="variants" id="variants" role="radiogroup" aria-label="Choix de la finition"></ul>
+          </div>
+
+          <div class="buy-block">
+            <div class="block-label"><span>Quantité</span><span class="hint">Remise automatique</span></div>
+            <div class="qty-row">
+              <div class="stepper">
+                <button type="button" id="qtyMinus" aria-label="Diminuer la quantité">−</button>
+                <input type="number" id="qtyInput" value="1" min="1" max="9999" step="1"
+                       inputmode="numeric" aria-label="Quantité de cartes">
+                <button type="button" id="qtyPlus" aria-label="Augmenter la quantité">+</button>
+              </div>
+              <div class="qty-jump" id="qtyJump">
+                <button type="button" data-qty="5">5</button>
+                <button type="button" data-qty="10">10</button>
+                <button type="button" data-qty="25">25</button>
+                <button type="button" data-qty="50">50</button>
+              </div>
+            </div>
+            <p class="tier-nudge" id="tierNudge" hidden></p>
+            <p class="saved-note" id="savedNote" hidden></p>
+          </div>
+
+          <div class="avail">
+            <span class="row"><span class="dot"></span><span id="availStock"><b>En stock</b> · expédié sous 48 h ouvrées</span></span>
+            <span class="row muted" id="availDelivery"></span>
+            <span class="row muted" id="availShipping"></span>
+          </div>
+
+          <div id="buyActions">
+            <div class="buy-cta">
+              <button type="button" class="btn btn-primary btn-lg btn-block" id="buyBtn">
+                <span id="buyBtnLabel">Commander</span>
+              </button>
+            </div>
+            <p class="pay-note">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                <rect x="4" y="10.5" width="16" height="10" rx="2"/><path d="M8 10.5V7a4 4 0 0 1 8 0v3.5"/>
+              </svg>
+              Paiement sécurisé par Stripe · Carte, Apple&nbsp;Pay, Google&nbsp;Pay
+            </p>
+            <p class="buy-error" id="buyError" hidden></p>
+
+            <div class="trust-row">
+              <span class="t">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+                  <path d="M12 3l7.5 3v5.4c0 4.4-3.1 8.4-7.5 9.6-4.4-1.2-7.5-5.2-7.5-9.6V6z"/><path d="M9 12.2l2.2 2.2 4-4.3"/>
+                </svg>
+                <b>14 jours</b>pour changer d'avis
+              </span>
+              <span class="t">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+                  <path d="M3 7h11v9H3z"/><path d="M14 10h4l3 3v3h-7z"/><circle cx="7" cy="17.5" r="1.8"/><circle cx="17" cy="17.5" r="1.8"/>
+                </svg>
+                <b>Offerte</b>dès 3 cartes
+              </span>
+              <span class="t">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+                  <path d="M12 3l7.5 3v5.4c0 4.4-3.1 8.4-7.5 9.6-4.4-1.2-7.5-5.2-7.5-9.6V6z"/><path d="M12 8.6v6.8"/><path d="M8.6 12h6.8"/>
+                </svg>
+                <b>Garantie à vie</b>contre les défauts
+              </span>
+            </div>
+
+            <div class="timeline" id="timeline"></div>
+          </div>
+
+          <aside class="quote-panel" id="quotePanel" hidden>
+            <h3>Au-delà de 100 cartes, on passe par un devis.</h3>
+            <p>À ce volume, un service achats attend une proposition chiffrée et un règlement sur facture à 30 jours, pas un paiement par carte bancaire. Dites-nous ce qu'il vous faut, vous avez une réponse sous 24 h ouvrées.</p>
+            <a class="btn btn-accent" href="#devis" data-quote-link>Demander un devis</a>
+          </aside>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== POINTS FORTS ===================== -->
+  <div class="pills">
+    <div class="pill">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true">
+        <path d="M7 4.5a11 11 0 0 1 0 15"/><path d="M12.5 8a5.5 5.5 0 0 1 0 8"/><circle cx="18" cy="12" r="1.4"/>
+      </svg>
+      <span class="k">NFC + QR code</span>
+      <span class="v">Deux façons d'ouvrir la page</span>
+    </div>
+    <div class="pill">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true">
+        <rect x="6" y="2.5" width="12" height="19" rx="2.6"/><path d="M10.5 18.5h3"/>
+      </svg>
+      <span class="k">Rien à installer</span>
+      <span class="v">Aucune appli côté client, iPhone et Android</span>
+    </div>
+    <div class="pill">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true">
+        <path d="M20 11.5a8 8 0 1 0-2.3 5.6"/><path d="M20 5.5v6h-6"/>
+      </svg>
+      <span class="k">Lien modifiable</span>
+      <span class="v">Changez la destination quand vous voulez</span>
+    </div>
+    <div class="pill">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true">
+        <path d="M12 3v18"/><path d="M5 8.5h9.5a3 3 0 0 1 0 6H5"/>
+      </svg>
+      <span class="k">Sans abonnement</span>
+      <span class="v">Achat unique, 0 € par mois</span>
+    </div>
+  </div>
+
+  <!-- ===================== FONCTIONNEMENT ===================== -->
+  <section class="on-paper" id="fonctionnement" aria-labelledby="howTitle">
+    <div class="wrap">
+      <div class="section-head center">
+        <span class="eyebrow">En trois temps</span>
+        <h2 id="howTitle">Configurez. Posez. Récoltez.</h2>
+        <p class="lede">Vous configurez la carte une fois, en quelques minutes. Ensuite, vos clients n'ont plus rien à faire qu'approcher leur téléphone.</p>
+      </div>
+      <div class="steps">
+        <article class="step has-media">
+          <img class="step-media" src="assets/img/section-configurez.jpg"
+               alt="Un téléphone approché de la carte Tapline bleue pour la configurer"
+               width="1000" height="990" loading="lazy" decoding="async">
+          <div class="step-body">
+            <span class="num">1</span>
+            <h3>Configurez</h3>
+            <p>À la première utilisation, la carte vous conduit vers l'application dédiée : vous y créez votre compte, puis vous indiquez l'adresse de votre fiche d'établissement Google. Une notice détaillée, reçue dès la commande, reprend chaque étape.</p>
+          </div>
+        </article>
+        <article class="step has-media">
+          <img class="step-media" src="assets/img/section-posez.jpg"
+               alt="La carte Tapline posée sur le comptoir d'une boutique, à côté du terminal de paiement"
+               width="1000" height="990" loading="lazy" decoding="async">
+          <div class="step-body">
+            <span class="num">2</span>
+            <h3>Posez</h3>
+            <p>À l'accueil, sur le comptoir, près de la caisse ou sur la table. La carte reste visible, à portée de main, là où vos clients passent déjà naturellement.</p>
+          </div>
+        </article>
+        <article class="step has-media">
+          <img class="step-media" src="assets/img/section-recoltez.jpg"
+               alt="Un client ouvre la fiche d'avis Google sur son téléphone après avoir approché la carte"
+               width="1000" height="990" loading="lazy" decoding="async">
+          <div class="step-body">
+            <span class="num">3</span>
+            <h3>Récoltez</h3>
+            <p>Le client approche son téléphone : votre page s'ouvre immédiatement. Il lui reste un geste à faire au lieu de cinq, au moment précis où il est encore satisfait.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== BÉNÉFICES ===================== -->
+  <section class="on-dark" aria-labelledby="benefitsTitle">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Pourquoi ça marche</span>
+        <h2 id="benefitsTitle">Le problème n'a jamais été la satisfaction. C'est le nombre d'étapes.</h2>
+      </div>
+
+      <article class="feature">
+        <div>
+          <span class="eyebrow">Moins de friction</span>
+          <h3>Cinq étapes deviennent une.</h3>
+          <p>Un client content veut bien laisser un avis, tant qu'on ne lui demande pas de déverrouiller son téléphone, d'ouvrir une application, de chercher votre établissement, de le sélectionner puis de trouver le bouton. À chaque étape, une partie des gens abandonne.</p>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Aucune application à télécharger pour le client</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Aucun compte à créer de son côté, aucune adresse à saisir</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>La demande se fait au bon moment, pas trois jours après</li>
+          </ul>
+        </div>
+        <div class="feature-visual">
+          <img src="assets/img/section-cinq-etapes.jpg"
+               alt="Les deux finitions de la carte Tapline, noire et bleue, présentées sur un support en bois"
+               width="1000" height="1000" loading="lazy" decoding="async">
+        </div>
+      </article>
+
+      <article class="feature reverse">
+        <div>
+          <span class="eyebrow">Pas de dette</span>
+          <h3>La carte reste. Le lien, lui, peut changer.</h3>
+          <p>Un autocollant QR classique fige sa destination le jour de l'impression. Ici, le sans contact comme le QR code pointent vers une adresse que vous modifiez depuis votre espace, aussi souvent que nécessaire : nouvelle fiche d'établissement, changement d'enseigne, déménagement, second point de vente. Le même objet suit.</p>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Aucune réimpression, aucun rachat</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Aucun abonnement qui désactiverait la carte si vous arrêtez</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Toutes vos cartes réunies dans un même espace, quel qu'en soit le nombre</li>
+          </ul>
+        </div>
+        <div class="feature-visual">
+          <img src="assets/img/section-carte-reste.jpg"
+               alt="Les cartes Tapline noire et bleue posées côte à côte sur un plan de travail en bois"
+               width="1000" height="1000" loading="lazy" decoding="async">
+        </div>
+      </article>
+
+      <div class="figures mt-xl">
+        <div class="figure"><div class="k">2</div><div class="v">finitions au choix : fond noir ou fond bleu</div></div>
+        <div class="figure"><div class="k">0 €</div><div class="v">par mois — la carte s'achète une fois</div></div>
+        <div class="figure"><div class="k">48 h</div><div class="v">ouvrées pour l'expédition de votre commande</div></div>
+        <div class="figure"><div class="k">−30 %</div><div class="v">de remise atteinte à partir de 50 cartes</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== COMPARATIF ===================== -->
+  <section class="on-bg2" id="comparatif" aria-labelledby="cmpTitle">
+    <div class="wrap">
+      <div class="section-head center">
+        <span class="eyebrow">Comparatif</span>
+        <h2 id="cmpTitle">Face aux deux autres méthodes.</h2>
+        <p class="lede">L'autocollant QR figé et la demande orale fonctionnent aussi. Ils demandent simplement davantage au client, ou davantage à votre équipe.</p>
+      </div>
+      <div class="compare-scroll">
+        <table class="compare">
+          <thead>
+            <tr>
+              <th scope="col">&nbsp;</th>
+              <th scope="col" class="own">Carte Tapline</th>
+              <th scope="col">Autocollant QR figé</th>
+              <th scope="col">Demande orale</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Accès pour le client</th>
+              <td class="own"><span class="yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Un contact — ou le QR code imprimé sur la carte</td>
+              <td>Déverrouiller, ouvrir l'appareil photo, viser</td>
+              <td>Le client doit chercher seul, plus tard</td>
+            </tr>
+            <tr>
+              <th scope="row">Application à installer pour le client</th>
+              <td class="own"><span class="yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Aucune</td>
+              <td>Aucune</td>
+              <td>Aucune</td>
+            </tr>
+            <tr>
+              <th scope="row">Destination modifiable</th>
+              <td class="own"><span class="yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>À tout moment, sans rien réimprimer</td>
+              <td><span class="no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M7 7l10 10M17 7L7 17"/></svg></span>Figée à l'impression</td>
+              <td>—</td>
+            </tr>
+            <tr>
+              <th scope="row">Charge pour l'équipe</th>
+              <td class="own"><span class="yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Nulle : la carte est posée, elle travaille seule</td>
+              <td>Il faut penser à la montrer</td>
+              <td>Il faut le demander, à chaque client</td>
+            </tr>
+            <tr>
+              <th scope="row">Coût récurrent</th>
+              <td class="own"><span class="yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Aucun</td>
+              <td>Réimpression à chaque changement</td>
+              <td>Aucun</td>
+            </tr>
+            <tr>
+              <th scope="row">Équiper plusieurs points de vente</th>
+              <td class="own"><span class="yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Remise dégressive dès 5 cartes, jusqu'à −30 %</td>
+              <td>Coût d'impression par site</td>
+              <td>Dépend de chaque équipe</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== TARIFS ===================== -->
+  <section class="on-dark" id="tarifs" aria-labelledby="tarifsTitle">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Tarifs dégressifs</span>
+        <h2 id="tarifsTitle">Plus vous équipez de points de contact, moins la carte coûte.</h2>
+        <p class="lede">La remise s'applique toute seule dans le panier. Rien à demander, rien à négocier tant que vous restez sous 100 cartes.</p>
+      </div>
+      <div class="tiers" id="tierCards"></div>
+      <p class="small mt-xl">Prix unitaires nets. TVA non applicable, article 293 B du CGI : aucune taxe ne s'ajoute au prix affiché, et aucune TVA n'est récupérable. Livraison offerte à partir de 3 cartes, 4,90 € en dessous. Facture au nom de votre société émise automatiquement au paiement, et règlement à 30 jours possible sur devis.</p>
+    </div>
+  </section>
+
+  <!-- ===================== AVIS (masqués tant qu'aucun avis réel) ===================== -->
+  <section class="on-paper" id="reviewsSection" hidden aria-labelledby="revTitle">
+    <div class="wrap">
+      <div class="section-head center">
+        <span class="eyebrow">Avis clients</span>
+        <h2 id="revTitle">Ce qu'en disent ceux qui l'utilisent.</h2>
+      </div>
+      <div class="reviews" id="reviewList"></div>
+      <div class="logo-strip mt-xl" id="clientLogos" hidden></div>
+    </div>
+  </section>
+
+  <!-- ===================== FAQ ===================== -->
+  <section class="on-paper" id="faq" aria-labelledby="faqTitle">
+    <div class="wrap wrap-narrow">
+      <div class="section-head center">
+        <span class="eyebrow">Questions fréquentes</span>
+        <h2 id="faqTitle">Tout ce qu'il faut savoir avant de commander.</h2>
+      </div>
+      <div class="faq">
+        <details open>
+          <summary>Comment fonctionne la carte, concrètement ?</summary>
+          <div class="answer"><p>Le client approche son téléphone de la carte, et la page que vous avez choisie s'ouvre immédiatement. Aucune application n'est nécessaire, ni de votre côté ni du sien.</p></div>
+        </details>
+        <details>
+          <summary>Quels téléphones sont compatibles ?</summary>
+          <div class="answer"><p>Les iPhone et les smartphones Android récents lisent nativement les cartes sans contact, sans réglage préalable sur la grande majorité des modèles.</p></div>
+        </details>
+        <details>
+          <summary>Et si le téléphone du client ne lit pas le sans contact ?</summary>
+          <div class="answer"><p>Chaque carte porte aussi un QR code. Le client ouvre son appareil photo, le vise, et la même page s'ouvre. Aucun client n'est laissé de côté, quel que soit son téléphone.</p></div>
+        </details>
+        <details>
+          <summary>Y a-t-il un abonnement ?</summary>
+          <div class="answer"><p>Non. La carte s'achète une fois, au prix affiché, et continue de fonctionner ensuite sans aucun paiement. C'est une différence assumée avec les offres facturées au mois.</p></div>
+        </details>
+        <details>
+          <summary>Puis-je modifier le lien après l'achat ?</summary>
+          <div class="answer"><p>Oui, autant de fois que vous le souhaitez. La modification se fait depuis l'application dédiée sur laquelle vous créez votre compte à la première mise en service : vous y retrouvez toutes vos cartes et changez la destination de chacune. Le sans contact et le QR code suivent ensemble, il n'y a rien à réimprimer.</p></div>
+        </details>
+        <details>
+          <summary>Comment configure-t-on la carte à la réception ?</summary>
+          <div class="answer"><p>La carte vous conduit d'elle-même vers l'application de configuration lors de sa première utilisation. Vous y créez un compte, puis vous indiquez l'adresse vers laquelle elle doit pointer.</p><p>Dès la validation de votre commande, vous recevez par e-mail une notice détaillée qui reprend chaque étape, captures à l'appui. Elle est écrite pour être suivie par une équipe en boutique, sans compétence technique particulière.</p></div>
+        </details>
+        <details>
+          <summary>Comment fonctionne la remise par quantité ?</summary>
+          <div class="answer"><p>Elle s'applique automatiquement dans le panier dès que vous atteignez un palier : −10 % à partir de 5 cartes, −15 % à partir de 10, −25 % à partir de 25, −30 % à partir de 50. Au-delà de 100 cartes, on passe par un devis.</p></div>
+        </details>
+        <details>
+          <summary>Puis-je avoir une facture au nom de mon entreprise ?</summary>
+          <div class="answer"><p>Oui. Le nom de votre société se renseigne au moment du paiement et la facture est émise automatiquement.</p><p>Un point à connaître pour votre comptabilité : Tapline relève de la franchise en base de TVA (article 293 B du code général des impôts). La facture ne porte donc aucune TVA, et il n'y a pas de TVA à récupérer. Le prix affiché est le prix payé, sans taxe ajoutée.</p></div>
+        </details>
+        <details>
+          <summary>Quels sont les délais de livraison ?</summary>
+          <div class="answer"><p>Expédition sous 48 h ouvrées, puis livraison en 7 à 10 jours ouvrés en envoi suivi. Les frais sont de 4,90 € pour 1 ou 2 cartes, et la livraison est offerte à partir de 3 cartes. La fourchette de dates affichée dans la fiche produit est calculée à partir d'aujourd'hui.</p></div>
+        </details>
+        <details>
+          <summary>Et si la carte ne me convient pas ?</summary>
+          <div class="answer"><p>Vous disposez de 14 jours après réception pour exercer votre droit de rétractation, sans avoir à vous justifier. Les conditions détaillées figurent dans nos <a class="link-quiet" href="cgv.html">conditions générales de vente</a>.</p></div>
+        </details>
+        <details>
+          <summary>Que couvre la garantie à vie ?</summary>
+          <div class="answer"><p>Tout défaut de fabrication : puce inopérante, impression défectueuse, décollement. La carte est remplacée sans frais, sans limite de durée, sur simple envoi d'une photo à <a class="link-quiet" href="mailto:tapline.nfc@gmail.com">tapline.nfc@gmail.com</a>. L'usure normale et la casse ne sont pas couvertes. Cette garantie commerciale s'ajoute aux garanties légales de conformité et contre les vices cachés, elle ne s'y substitue pas.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== DEVIS ===================== -->
+  <section class="on-bg2" id="devis" aria-labelledby="devisTitle">
+    <div class="wrap wrap-narrow">
+      <div class="section-head center">
+        <span class="eyebrow">À partir de 100 cartes</span>
+        <h2 id="devisTitle">Demander un devis.</h2>
+        <p class="lede">Pour équiper un réseau de points de vente, ou pour toute commande nécessitant un bon de commande et un règlement sur facture.</p>
+      </div>
+
+      <form name="devis" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/merci.html?type=devis">
+        <input type="hidden" name="form-name" value="devis">
+        <p class="hp"><label>Ne remplissez pas ce champ : <input name="bot-field"></label></p>
+
+        <div class="form-grid">
+          <div class="form-field">
+            <label for="devisSociete">Société</label>
+            <input id="devisSociete" name="societe" type="text" required autocomplete="organization">
+          </div>
+          <div class="form-field">
+            <label for="devisNom">Nom et prénom</label>
+            <input id="devisNom" name="nom" type="text" required autocomplete="name">
+          </div>
+          <div class="form-field">
+            <label for="devisEmail">E-mail professionnel</label>
+            <input id="devisEmail" name="email" type="email" required autocomplete="email">
+          </div>
+          <div class="form-field">
+            <label for="devisTel">Téléphone</label>
+            <input id="devisTel" name="telephone" type="tel" autocomplete="tel">
+          </div>
+          <div class="form-field">
+            <label for="devisQuantite">Quantité estimée</label>
+            <input id="devisQuantite" name="quantite" type="number" min="1" step="1" inputmode="numeric">
+          </div>
+          <div class="form-field">
+            <label for="devisVariante">Carte souhaitée</label>
+            <input id="devisVariante" name="variante" type="text">
+          </div>
+          <div class="form-field full">
+            <label for="devisMessage">Contexte et échéance</label>
+            <textarea id="devisMessage" name="message" placeholder="Nombre de points de vente, date de mise en service souhaitée, contraintes de facturation…"></textarea>
+          </div>
+          <div class="full">
+            <button type="submit" class="btn btn-primary btn-lg">Envoyer la demande</button>
+            <p class="small mt-sm">Réponse sous 24 h ouvrées. Vos coordonnées servent uniquement à traiter cette demande — voir la <a class="link-quiet" href="confidentialite.html">politique de confidentialité</a>.</p>
+          </div>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- ===================== CTA FINAL ===================== -->
+  <section class="on-dark final" aria-labelledby="finalTitle">
+    <div class="wrap">
+      <h2 id="finalTitle">Chaque client satisfait qui repart sans rien dire est un avis perdu.</h2>
+      <p class="lede">Deux finitions au choix, une remise dès la cinquième carte, une notice de configuration dès la commande.</p>
+      <a class="btn btn-accent btn-lg" href="#commander">Commander ma carte — 29,90 €</a>
+      <div class="guarantees">
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 3l7.5 3v5.4c0 4.4-3.1 8.4-7.5 9.6-4.4-1.2-7.5-5.2-7.5-9.6V6z"/><path d="M12 8.6v6.8"/><path d="M8.6 12h6.8"/></svg>Garantie à vie contre les défauts</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 3l7.5 3v5.4c0 4.4-3.1 8.4-7.5 9.6-4.4-1.2-7.5-5.2-7.5-9.6V6z"/></svg>14 jours pour changer d'avis</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 7h11v9H3z"/><path d="M14 10h4l3 3v3h-7z"/></svg>Livraison offerte dès 3 cartes</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="4" y="10.5" width="16" height="10" rx="2"/><path d="M8 10.5V7a4 4 0 0 1 8 0v3.5"/></svg>Paiement sécurisé</span>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ===================== BARRE D'ACHAT COLLANTE (mobile) ===================== -->
+<div class="sticky-buy" id="stickyBar">
+  <span class="sb-info">
+    <span class="sb-name" id="stickyName"></span>
+    <span class="sb-price" id="stickyPrice"></span>
+  </span>
+  <button type="button" class="btn btn-primary" id="stickyBtn">Commander</button>
+</div>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-about">
+        <a class="wordmark" href="/">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" aria-hidden="true">
+            <path d="M8 4.5a11 11 0 0 1 0 15"/><path d="M13.5 8a5.5 5.5 0 0 1 0 8"/>
+          </svg>
+          Tapline
+        </a>
+        <p>La carte NFC et QR code qui ouvre votre fiche d'avis Google en un geste. Sans abonnement, garantie à vie.</p>
+      </div>
+      <div>
+        <h4>Produit</h4>
+        <ul>
+          <li><a href="#commander">Commander</a></li>
+          <li><a href="#fonctionnement">Comment ça marche</a></li>
+          <li><a href="#comparatif">Comparatif</a></li>
+          <li><a href="#tarifs">Tarifs dégressifs</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Entreprises</h4>
+        <ul>
+          <li><a href="#devis" data-quote-link>Demander un devis</a></li>
+          <li><a href="#faq">Questions fréquentes</a></li>
+          <li><a href="contact.html">Nous contacter</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Informations</h4>
+        <ul>
+          <li><a href="mentions-legales.html">Mentions légales</a></li>
+          <li><a href="cgv.html">Conditions de vente</a></li>
+          <li><a href="confidentialite.html">Confidentialité</a></li>
+          <li><a href="mailto:tapline.nfc@gmail.com">tapline.nfc@gmail.com</a></li>
+          <li><a href="tel:+33695257781">06 95 25 77 81</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span data-year>2026</span> Tapline — Lilo Serafin (EI) · TVA non applicable, art. 293 B du CGI</span>
+      <span>Paiement sécurisé par Stripe</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/config.js"></script>
+<script src="assets/js/main.js"></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://tapline.fr/#organisation",
+      "name": "Tapline",
+      "legalName": "Lilo Serafin",
+      "url": "https://tapline.fr/",
+      "email": "tapline.nfc@gmail.com",
+      "telephone": "+33695257781",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "5 rue Achille Mir",
+        "postalCode": "31100",
+        "addressLocality": "Toulouse",
+        "addressCountry": "FR"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://tapline.fr/#site",
+      "url": "https://tapline.fr/",
+      "name": "Tapline",
+      "inLanguage": "fr-FR",
+      "publisher": { "@id": "https://tapline.fr/#organisation" }
+    },
+    {
+      "@type": "Product",
+      "@id": "https://tapline.fr/#produit",
+      "name": "Carte NFC avis Google Tapline",
+      "description": "Carte NFC et QR code qui ouvre une fiche d'avis Google sur le téléphone du client. Aucune application à installer pour le client, sans abonnement, destination modifiable, garantie à vie contre les défauts de fabrication. Deux finitions : fond noir ou fond bleu.",
+      "brand": { "@id": "https://tapline.fr/#organisation" },
+      "image": [
+        "https://tapline.fr/assets/img/carte-google-bleu.jpg",
+        "https://tapline.fr/assets/img/carte-google-noir.jpg"
+      ],
+      "offers": {
+        "@type": "AggregateOffer",
+        "priceCurrency": "EUR",
+        "lowPrice": "20.93",
+        "highPrice": "29.90",
+        "offerCount": "2",
+        "availability": "https://schema.org/InStock",
+        "url": "https://tapline.fr/#commander"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://tapline.fr/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Y a-t-il un abonnement ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Non. La carte s'achète une fois, au prix affiché, et continue de fonctionner sans paiement ultérieur." }
+        },
+        {
+          "@type": "Question",
+          "name": "Puis-je modifier le lien après l'achat ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Oui, autant de fois que souhaité, depuis l'application de configuration sur laquelle vous créez un compte à la première mise en service. Le sans contact et le QR code suivent ensemble, il n'y a rien à réimprimer." }
+        },
+        {
+          "@type": "Question",
+          "name": "Que couvre la garantie à vie ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Tout défaut de fabrication : puce inopérante, impression défectueuse, décollement. La carte est remplacée sans frais et sans limite de durée. L'usure normale et la casse ne sont pas couvertes." }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment fonctionne la remise par quantité ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "−10 % à partir de 5 cartes, −15 % à partir de 10, −25 % à partir de 25 et −30 % à partir de 50. Au-delà de 100 cartes, la commande passe par un devis." }
+        },
+        {
+          "@type": "Question",
+          "name": "Quels sont les délais de livraison ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Expédition sous 48 h ouvrées, livraison en 7 à 10 jours ouvrés. 4,90 € pour 1 ou 2 cartes, offerte à partir de 3 cartes." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+</body>
+</html>

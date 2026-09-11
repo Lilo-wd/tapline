@@ -1,0 +1,12 @@
+{
+  "name": "tapline",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Site e-commerce mono-produit Tapline — cartes NFC pour enseignes et reseaux.",
+  "scripts": {
+    "dev": "netlify dev"
+  },
+  "dependencies": {
+    "stripe": "^16.12.0"
+  }
+}
