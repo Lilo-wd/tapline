@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Votre reçu Tapline</title>
+</head>
+<body style="margin:0;padding:0;background-color:#f4f2ee;font-family:Helvetica,Arial,sans-serif;">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#f4f2ee;padding:32px 0;">
+  <tr>
+    <td align="center">
+      <table role="presentation" width="600" cellpadding="0" cellspacing="0" style="background-color:#ffffff;border-radius:8px;overflow:hidden;">
+
+        <!-- Header -->
+        <tr>
+          <td style="background-color:#111111;padding:32px 40px;text-align:center;">
+            <span style="color:#ffffff;font-size:24px;font-weight:bold;letter-spacing:3px;">TAPLINE</span>
+          </td>
+        </tr>
+
+        <!-- Title -->
+        <tr>
+          <td style="padding:40px 40px 0 40px;">
+            <h1 style="margin:0;font-size:22px;color:#111111;">Merci pour votre commande, {{prenom}} !</h1>
+            <p style="margin:12px 0 0 0;font-size:15px;color:#555555;line-height:1.6;">
+              Votre paiement a bien été reçu et votre commande est confirmée. Vous trouverez ci-dessous le récapitulatif, ainsi que votre facture complète en pièce jointe (PDF).
+            </p>
+          </td>
+        </tr>
+
+        <!-- Order info -->
+        <tr>
+          <td style="padding:24px 40px 0 40px;">
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border:1px solid #eaeaea;border-radius:6px;">
+              <tr>
+                <td style="padding:16px 20px;font-size:13px;color:#888888;">N° de commande</td>
+                <td style="padding:16px 20px;font-size:13px;color:#111111;text-align:right;">{{numero_commande}}</td>
+              </tr>
+              <tr>
+                <td style="padding:0 20px 16px 20px;font-size:13px;color:#888888;border-top:1px solid #f0f0f0;">Date</td>
+                <td style="padding:0 20px 16px 20px;font-size:13px;color:#111111;text-align:right;border-top:1px solid #f0f0f0;">{{date_commande}}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <!-- Items table -->
+        <tr>
+          <td style="padding:24px 40px 0 40px;">
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+              <tr style="border-bottom:2px solid #111111;">
+                <td style="padding:8px 0;font-size:12px;color:#111111;text-transform:uppercase;letter-spacing:1px;">Article</td>
+                <td style="padding:8px 0;font-size:12px;color:#111111;text-transform:uppercase;letter-spacing:1px;text-align:center;">Qté</td>
+                <td style="padding:8px 0;font-size:12px;color:#111111;text-transform:uppercase;letter-spacing:1px;text-align:right;">Total</td>
+              </tr>
+              {{lignes_articles}}
+              <tr>
+                <td colspan="2" style="padding:16px 0 4px 0;font-size:14px;color:#555555;text-align:right;">Sous-total</td>
+                <td style="padding:16px 0 4px 0;font-size:14px;color:#111111;text-align:right;">{{sous_total}} €</td>
+              </tr>
+              <tr>
+                <td colspan="2" style="padding:4px 0;font-size:14px;color:#555555;text-align:right;">Livraison</td>
+                <td style="padding:4px 0;font-size:14px;color:#111111;text-align:right;">{{frais_livraison}} €</td>
+              </tr>
+              <tr>
+                <td colspan="2" style="padding:12px 0;font-size:16px;color:#111111;font-weight:bold;text-align:right;border-top:1px solid #eaeaea;">Total payé</td>
+                <td style="padding:12px 0;font-size:16px;color:#111111;font-weight:bold;text-align:right;border-top:1px solid #eaeaea;">{{total}} €</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <!-- Legal / invoice block -->
+        <tr>
+          <td style="padding:24px 40px 0 40px;">
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#f9f8f6;border-radius:6px;">
+              <tr>
+                <td style="padding:20px;font-size:12px;color:#777777;line-height:1.7;">
+                  <strong style="color:#111111;">Facture n° {{numero_facture}}</strong><br>
+                  Vendu par Lilo Serafin (EI) — SIRET 109 022 988 00017<br>
+                  5 rue Achille Mir, 31100 Toulouse, France<br>
+                  TVA non applicable, art. 293 B du CGI
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <!-- Attachment note -->
+        <tr>
+          <td style="padding:24px 40px 0 40px;">
+            <p style="margin:0;font-size:13px;color:#888888;text-align:center;">
+              📎 Votre facture officielle est jointe à cet e-mail au format PDF.
+            </p>
+          </td>
+        </tr>
+
+        <!-- CTA -->
+        <tr>
+          <td style="padding:32px 40px 0 40px;text-align:center;">
+            <p style="margin:0 0 16px 0;font-size:14px;color:#555555;">
+              La suite ? Un second e-mail va vous détailler comment mettre votre carte en service.
+            </p>
+          </td>
+        </tr>
+
+        <!-- Footer -->
+        <tr>
+          <td style="padding:32px 40px 40px 40px;text-align:center;border-top:1px solid #eaeaea;margin-top:24px;">
+            <p style="margin:24px 0 4px 0;font-size:12px;color:#aaaaaa;">
+              Une question ? Répondez simplement à cet e-mail, nous sommes là pour vous aider.
+            </p>
+            <p style="margin:4px 0 0 0;font-size:12px;color:#aaaaaa;">
+              Tapline — <a href="https://tapline.fr" style="color:#aaaaaa;">tapline.fr</a>
+            </p>
+          </td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

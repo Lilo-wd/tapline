@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mettez votre carte Tapline en service</title>
+</head>
+<body style="margin:0;padding:0;background-color:#f4f2ee;font-family:Helvetica,Arial,sans-serif;">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#f4f2ee;padding:32px 0;">
+  <tr>
+    <td align="center">
+      <table role="presentation" width="600" cellpadding="0" cellspacing="0" style="background-color:#ffffff;border-radius:8px;overflow:hidden;">
+
+        <!-- Header -->
+        <tr>
+          <td style="background-color:#111111;padding:32px 40px;text-align:center;">
+            <span style="color:#ffffff;font-size:24px;font-weight:bold;letter-spacing:3px;">TAPLINE</span>
+          </td>
+        </tr>
+
+        <!-- Title -->
+        <tr>
+          <td style="padding:40px 40px 0 40px;">
+            <h1 style="margin:0;font-size:22px;color:#111111;">Votre carte arrive, passons à l'activation</h1>
+            <p style="margin:12px 0 0 0;font-size:15px;color:#555555;line-height:1.6;">
+              Bonjour {{prenom}},<br><br>
+              Pour que votre carte Tapline collecte vos premiers avis dès sa réception, voici le guide complet de mise en service, étape par étape.
+            </p>
+          </td>
+        </tr>
+
+        <!-- Étape 1-2 -->
+        <tr>
+          <td style="padding:28px 40px 0 40px;">
+            <p style="margin:0 0 10px 0;font-size:14px;color:#111111;line-height:1.6;">
+              <strong>1.</strong> Positionnez le haut de votre téléphone sur la carte NFC.<br>
+              <strong>2.</strong> Cliquez sur la notification que vous avez reçue :
+            </p>
+            <img src="{{base_url}}/assets/img/guide/etape-1-2.jpg" alt="Notification étiquette NFC Chrome" width="520" style="display:block;width:100%;max-width:520px;height:auto;border-radius:6px;border:1px solid #eee;">
+          </td>
+        </tr>
+
+        <!-- Étape 3 -->
+        <tr>
+          <td style="padding:24px 40px 0 40px;">
+            <p style="margin:0 0 10px 0;font-size:14px;color:#111111;line-height:1.6;">
+              <strong>3.</strong> Vous atterrissez sur cette page sur laquelle vous allez pouvoir créer votre compte :
+            </p>
+            <img src="{{base_url}}/assets/img/guide/etape-3.jpg" alt="Création de compte" width="380" style="display:block;width:100%;max-width:380px;height:auto;border-radius:6px;border:1px solid #eee;margin:0 auto;">
+          </td>
+        </tr>
+
+        <!-- Étape 4 -->
+        <tr>
+          <td style="padding:24px 40px 0 40px;">
+            <p style="margin:0 0 10px 0;font-size:14px;color:#111111;line-height:1.6;">
+              <strong>4.</strong> Une fois le compte créé, ouvrez une autre page Google for developers et cherchez votre boutique / point de vente :
+              <a href="https://developers.google.com/maps/documentation/javascript/examples/places-placeid-finder" style="color:#555555;">developers.google.com/.../places-placeid-finder</a>
+            </p>
+            <img src="{{base_url}}/assets/img/guide/etape-4.jpg" alt="Recherche de la boutique sur Google" width="480" style="display:block;width:100%;max-width:480px;height:auto;border-radius:6px;border:1px solid #eee;margin:0 auto;">
+          </td>
+        </tr>
+
+        <!-- Étape 5 -->
+        <tr>
+          <td style="padding:24px 40px 0 40px;">
+            <p style="margin:0 0 10px 0;font-size:14px;color:#111111;line-height:1.6;">
+              <strong>5.</strong> Lorsque vous avez trouvé votre boutique à son adresse précise, copiez la « Place ID » :
+            </p>
+            <img src="{{base_url}}/assets/img/guide/etape-5.jpg" alt="Copie du Place ID" width="480" style="display:block;width:100%;max-width:480px;height:auto;border-radius:6px;border:1px solid #eee;margin:0 auto;">
+          </td>
+        </tr>
+
+        <!-- Étape 6 -->
+        <tr>
+          <td style="padding:24px 40px 0 40px;">
+            <p style="margin:0 0 10px 0;font-size:14px;color:#111111;line-height:1.6;">
+              <strong>6.</strong> Rendez-vous sur ReviewSense, un générateur de lien qui redirige vers une page d'avis Google, puis collez la « Place ID » :
+              <a href="https://www.reviewsense.ai/google-review-link-generator" style="color:#555555;">reviewsense.ai/google-review-link-generator</a>
+            </p>
+            <img src="{{base_url}}/assets/img/guide/etape-6.jpg" alt="Génération du lien d'avis Google" width="420" style="display:block;width:100%;max-width:420px;height:auto;border-radius:6px;border:1px solid #eee;margin:0 auto;">
+          </td>
+        </tr>
+
+        <!-- Étape 7 -->
+        <tr>
+          <td style="padding:24px 40px 0 40px;">
+            <p style="margin:0 0 10px 0;font-size:14px;color:#111111;line-height:1.6;">
+              <strong>7.</strong> Un lien vers votre page d'avis Google est généré, copiez-le :
+            </p>
+            <img src="{{base_url}}/assets/img/guide/etape-7.jpg" alt="Lien d'avis Google généré" width="480" style="display:block;width:100%;max-width:480px;height:auto;border-radius:6px;border:1px solid #eee;margin:0 auto;">
+          </td>
+        </tr>
+
+        <!-- Étape 8 -->
+        <tr>
+          <td style="padding:24px 40px 0 40px;">
+            <p style="margin:0 0 10px 0;font-size:14px;color:#111111;line-height:1.6;">
+              <strong>8.</strong> Revenez sur la première page, collez le lien généré sur ReviewSense et ajoutez une description pour ne pas confondre vos cartes entre elles :
+            </p>
+            <img src="{{base_url}}/assets/img/guide/etape-8.jpg" alt="Ajout du lien et de la description" width="380" style="display:block;width:100%;max-width:380px;height:auto;border-radius:6px;border:1px solid #eee;margin:0 auto;">
+          </td>
+        </tr>
+
+        <!-- Étape 9 -->
+        <tr>
+          <td style="padding:24px 40px 0 40px;">
+            <p style="margin:0 0 10px 0;font-size:14px;color:#111111;line-height:1.6;">
+              <strong>9.</strong> Félicitations, votre carte est configurée ! Cliquez sur « Consultez et gérez les cartes » pour accéder à l'interface où se trouvent l'ensemble de vos cartes configurées :
+            </p>
+            <img src="{{base_url}}/assets/img/guide/etape-9.jpg" alt="Carte configurée avec succès" width="380" style="display:block;width:100%;max-width:380px;height:auto;border-radius:6px;border:1px solid #eee;margin:0 auto;">
+          </td>
+        </tr>
+
+        <!-- Étape 10 -->
+        <tr>
+          <td style="padding:24px 40px 0 40px;">
+            <p style="margin:0 0 10px 0;font-size:14px;color:#111111;line-height:1.6;">
+              <strong>10.</strong> Sur cette interface accessible uniquement avec votre compte, vous pouvez modifier le lien de chaque carte autant de fois que vous le souhaitez.
+            </p>
+            <img src="{{base_url}}/assets/img/guide/etape-10.jpg" alt="Interface de gestion des cartes" width="380" style="display:block;width:100%;max-width:380px;height:auto;border-radius:6px;border:1px solid #eee;margin:0 auto;">
+          </td>
+        </tr>
+
+        <!-- Quick reassurance block -->
+        <tr>
+          <td style="padding:32px 40px 0 40px;">
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#f9f8f6;border-radius:6px;">
+              <tr>
+                <td style="padding:20px;font-size:13px;color:#555555;line-height:1.7;">
+                  <strong style="color:#111111;">Un souci lors de l'activation ?</strong><br>
+                  Répondez directement à cet e-mail avec une photo ou une description du problème : on vous répond sous 24h.
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <!-- Footer -->
+        <tr>
+          <td style="padding:32px 40px 40px 40px;text-align:center;border-top:1px solid #eaeaea;margin-top:24px;">
+            <p style="margin:24px 0 4px 0;font-size:12px;color:#aaaaaa;">
+              Merci de faire confiance à Tapline pour développer votre réputation en ligne.
+            </p>
+            <p style="margin:4px 0 0 0;font-size:12px;color:#aaaaaa;">
+              Tapline — <a href="https://tapline.fr" style="color:#aaaaaa;">tapline.fr</a>
+            </p>
+          </td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>
