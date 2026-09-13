@@ -3,15 +3,15 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Contact — Tapline</title>
-<meta name="description" content="Une question sur les cartes NFC Tapline, une commande en cours ou un déploiement multi-sites ? Écrivez-nous, réponse sous 24 h ouvrées.">
+<title>Contact – Carte NFC Avis Google | Tapline</title>
+<meta name="description" content="Une question sur votre carte NFC avis Google Tapline, une commande ou un déploiement multi-sites ? Écrivez-nous, réponse sous 24 h ouvrées.">
 <meta name="robots" content="noindex, nofollow">
-<link rel="canonical" href="https://tapline.fr/contact.html">
-<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="canonical" href="https://tapline.fr/contact/">
+<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
-<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/style.css">
 </head>
 <body>
 
@@ -38,7 +38,7 @@
     <div class="wrap wrap-narrow">
       <div class="section-head center">
         <span class="eyebrow">Contact</span>
-        <h2>Une question ? Écrivez-nous.</h2>
+        <h1>Une question ? Écrivez-nous.</h1>
         <p class="lede">Sur une commande en cours, la mise en service d'une carte, un déploiement sur plusieurs points de vente, ou simplement pour savoir si le produit convient à votre cas. Réponse sous 24 h ouvrées.</p>
       </div>
 
@@ -66,7 +66,7 @@
         <h2 id="formTitle">Posez votre question.</h2>
       </div>
 
-      <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/merci.html?type=contact">
+      <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/merci/?type=contact">
         <input type="hidden" name="form-name" value="contact">
         <p class="hp"><label>Ne remplissez pas ce champ : <input name="bot-field"></label></p>
 
@@ -93,7 +93,7 @@
           </div>
           <div class="full">
             <button type="submit" class="btn btn-primary btn-lg">Envoyer le message</button>
-            <p class="small mt-sm">Vos coordonnées servent uniquement à répondre à ce message — voir la <a class="link-quiet" href="confidentialite.html">politique de confidentialité</a>.</p>
+            <p class="small mt-sm">Vos coordonnées servent uniquement à répondre à ce message — voir la <a class="link-quiet" href="/confidentialite/">politique de confidentialité</a>.</p>
           </div>
         </div>
       </form>
@@ -116,10 +116,21 @@
   <div class="wrap">
     <div class="footer-bottom">
       <span>© 2026 Tapline — Lilo Serafin (EI)</span>
-      <span><a href="mentions-legales.html">Mentions légales</a> · <a href="cgv.html">CGV</a> · <a href="confidentialite.html">Confidentialité</a></span>
+      <span><a href="/mentions-legales/">Mentions légales</a> · <a href="/cgv/">CGV</a> · <a href="/confidentialite/">Confidentialité</a></span>
     </div>
   </div>
 </footer>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://tapline.fr/" },
+    { "@type": "ListItem", "position": 2, "name": "Contact", "item": "https://tapline.fr/contact/" }
+  ]
+}
+</script>
 
 </body>
 </html>

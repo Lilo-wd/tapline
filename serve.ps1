@@ -28,7 +28,10 @@ while ($listener.IsListening) {
   try {
     $ctx = $listener.GetContext()
     $path = [System.Uri]::UnescapeDataString($ctx.Request.Url.AbsolutePath)
-    if ($path -eq '/') { $path = '/index.html' }
+    # Les pages secondaires vivent maintenant en dossier/index.html (URLs
+    # propres, ex. /contact/) : resoudre "/" et tout chemin finissant par
+    # "/" vers son index.html, comme le fait Netlify en production.
+    if ($path.EndsWith('/')) { $path = $path + 'index.html' }
     $file = Join-Path $root ($path.TrimStart('/') -replace '/', '\')
 
     if (Test-Path $file -PathType Leaf) {

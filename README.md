@@ -14,9 +14,9 @@ ni récupérable, aucun numéro de TVA demandé au paiement.
 
 ```
 index.html                                 la page produit, en une seule page
-contact.html                               formulaire de contact + coordonnées
-merci.html                                 confirmation (commande, devis ou message)
-mentions-legales.html / cgv.html / confidentialite.html
+contact/index.html                         formulaire de contact + coordonnées      → /contact/
+merci/index.html                           confirmation (commande, devis, message)  → /merci/
+mentions-legales/ / cgv/ / confidentialite/                                          → URLs propres
 assets/css/style.css                       toute la feuille de style
 assets/js/config.js                        prix, paliers, variantes, livraison   ← à éditer
 assets/js/main.js                          galerie, sélecteurs, prix, dates, barre collante
@@ -198,10 +198,6 @@ Le compte est créé, validé, et le compte bancaire renseigné.
 
 ## Ce qui reste à faire
 
-- [ ] **Médiateur de la consommation** — pas encore choisi. Options, ~60 à 150 €/an : CM2C,
-      MEDICYS, AME Conso (liste officielle sur economie.gouv.fr) ; gratuit si adhésion à une CCI ou
-      à la FEVAD qui inclut déjà un service de médiation. Une fois choisi, donner le nom pour
-      compléter le `<span class="todo">` de `cgv.html`.
 - [ ] **Notice de mise en service** — à rédiger, puis à envoyer automatiquement après chaque
       commande. L'automatisation demande un service d'e-mail transactionnel (Brevo, Resend…) et un
       webhook Stripe : à brancher quand la notice existe.

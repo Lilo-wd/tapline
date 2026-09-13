@@ -135,7 +135,7 @@ exports.handler = async (event) => {
         quantite: String(qty),
         prix_unitaire_centimes: String(unitAmount)
       },
-      success_url: `${siteUrl}/merci.html?session_id={CHECKOUT_SESSION_ID}`,
+      success_url: `${siteUrl}/merci/?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${siteUrl}/#commander`
     });
 

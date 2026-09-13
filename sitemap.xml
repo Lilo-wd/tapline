@@ -6,22 +6,22 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://tapline.fr/contact.html</loc>
+    <loc>https://tapline.fr/contact/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://tapline.fr/mentions-legales.html</loc>
+    <loc>https://tapline.fr/mentions-legales/</loc>
     <changefreq>yearly</changefreq>
     <priority>0.2</priority>
   </url>
   <url>
-    <loc>https://tapline.fr/cgv.html</loc>
+    <loc>https://tapline.fr/cgv/</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://tapline.fr/confidentialite.html</loc>
+    <loc>https://tapline.fr/confidentialite/</loc>
     <changefreq>yearly</changefreq>
     <priority>0.2</priority>
   </url>

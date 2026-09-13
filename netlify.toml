@@ -27,7 +27,68 @@
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
 
+# ---------- Cache des pages HTML ----------
+# Enumerees explicitement (plutot que "/*") pour ne pas risquer de
+# recouvrir la regle de cache longue duree de /assets/* ci-dessus.
 [[headers]]
-  for = "/*.html"
+  for = "/"
   [headers.values]
     Cache-Control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+  for = "/contact/"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+  for = "/cgv/"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+  for = "/mentions-legales/"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+  for = "/confidentialite/"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+  for = "/merci/"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+# ---------- URLs propres : anciennes adresses .html -> nouvelles ----------
+# Redirections 301 permanentes, pour ne jamais casser un lien deja partage
+# meme si le site n'est pas encore indexe.
+[[redirects]]
+  from = "/contact.html"
+  to = "/contact/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/cgv.html"
+  to = "/cgv/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/mentions-legales.html"
+  to = "/mentions-legales/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/confidentialite.html"
+  to = "/confidentialite/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/merci.html"
+  to = "/merci/"
+  status = 301
+  force = true
