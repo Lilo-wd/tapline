@@ -16,6 +16,12 @@
 [functions]
   node_bundler = "esbuild"
 
+[functions.stripe-webhook]
+  # Les templates HTML des e-mails ne sont pas du code JS : esbuild ne les
+  # embarque pas automatiquement dans le bundle de la fonction, il faut les
+  # declarer explicitement pour qu'ils soient presents a l'execution.
+  included_files = ["netlify/functions/templates/**"]
+
 # ---------- En-tetes de securite ----------
 [[headers]]
   for = "/*"
