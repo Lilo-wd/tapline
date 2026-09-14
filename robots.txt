@@ -1,14 +1,4 @@
-# PREPRODUCTION — le site n'est pas encore indexable.
 User-agent: *
-Disallow: /
+Allow: /
 
-# ---------------------------------------------------------------
-# A LA MISE EN LIGNE PUBLIQUE : remplacer tout ce qui precede par
-# les quatre lignes ci-dessous, et retirer la balise
-# <meta name="robots" content="noindex, nofollow"> de index.html.
-#
-# User-agent: *
-# Allow: /
-#
-# Sitemap: https://tapline.fr/sitemap.xml
-# ---------------------------------------------------------------
+Sitemap: https://tapline.fr/sitemap.xml
